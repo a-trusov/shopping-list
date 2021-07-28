@@ -1,21 +1,31 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 
     <title>Список покупок</title>
 </head>
 <body>
 
 <div class="container">
-    <form method="post" action="#">
+    <form method="post"
+          th:action="@{/}"
+          th:object="${item}">
         <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" placeholder="Название новой покупки" aria-label="Название новой покупки" aria-describedby="basic-addon2">
+            <input type="text"
+                   th:field="*{name}"
+                   class="form-control"
+                   placeholder="Название новой покупки"
+                   aria-label="Название новой покупки"
+                   aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Добавить</button>
             </div>
@@ -30,17 +40,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Мясо</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Молоко</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Квас</td>
+        <tr th:each="item : ${items}">
+            <th scope="row" th:text="${item.id}">1</th>
+            <td th:text="${item.name}">Test</td>
         </tr>
         </tbody>
     </table>
