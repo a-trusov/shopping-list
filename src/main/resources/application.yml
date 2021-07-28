@@ -8,6 +8,10 @@ server:
     context-path: /shopping-list
 
 spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect

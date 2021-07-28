@@ -37,12 +37,18 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Название</th>
+            <th scope="col">Действия</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="item : ${items}">
             <th scope="row" th:text="${item.id}">1</th>
             <td th:text="${item.name}">Test</td>
+            <td>
+                <form th:action="@{/{id}(id = ${item.id})}" th:method="delete">
+                    <button type="submit" class="btn btn-outline-danger">Удалить</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
