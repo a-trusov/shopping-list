@@ -1,7 +1,8 @@
 package com.example.shoppinglist.controller;
 
 import com.example.shoppinglist.model.ShoppingItem;
-import com.example.shoppinglist.model.ShoppingItemRepository;
+import com.example.shoppinglist.repositories.ShoppingItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ public class ShoppingListController {
 
     private final ShoppingItemRepository repository;
 
+    @Autowired
     public ShoppingListController(ShoppingItemRepository repository) {
         this.repository = repository;
     }
