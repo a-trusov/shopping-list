@@ -1,11 +1,15 @@
 logging:
   level:
     root: INFO
+    org:
+      springframework:
+        security: DEBUG
+
 
 server:
-  port: 8090
+  port: ${PORT:8080}
   servlet:
-    context-path: /shopping-list
+    context-path: /
 
 spring:
   mvc:
@@ -22,9 +26,9 @@ spring:
       hibernate:
         format_sql: true
   datasource:
-    username: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/shopping-list
+    username: ${JDBC_DATABASE_USERNAME:postgres}
+    password: ${JDBC_DATABASE_PASSWORD:postgres}
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/shopping-list}
     driver-class-name: org.postgresql.Driver
 
 #  jpa:
