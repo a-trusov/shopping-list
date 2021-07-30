@@ -29,7 +29,7 @@ public class User {
     )
     private List<ShoppingItem> shoppingItems;
 
-//    @Column
-//    private String email;
+    @Column
+    private String email;
 
 }
