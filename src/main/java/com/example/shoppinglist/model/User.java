@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @Table(name = "users")
 public class User {
@@ -28,5 +28,8 @@ public class User {
             orphanRemoval = true
     )
     private List<ShoppingItem> shoppingItems;
+
+    @Column
+    private String email;
 
 }
