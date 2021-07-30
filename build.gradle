@@ -3,6 +3,7 @@ plugins {
 	id 'idea'
 	id 'org.springframework.boot' version '2.5.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id "org.liquibase.gradle" version "2.0.4"
 }
 
 group = 'com.example'
@@ -32,6 +33,8 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'org.liquibase:liquibase-core:4.4.2'
+
 	runtimeOnly 'com.h2database:h2'
 
 	compileOnly 'org.projectlombok:lombok'
